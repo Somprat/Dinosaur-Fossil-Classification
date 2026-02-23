@@ -6,6 +6,8 @@ from PIL import Image
 import io
 import os
 import sys
+import random
+import json
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -17,7 +19,7 @@ from app.torch_utils import model
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 NUM_CLASSES = 5  
 
-app = FastAPI(title="ResNet50 Image Classifier")
+app = FastAPI(title="Dinosaur Fossil Classifier")
 
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
@@ -66,7 +68,33 @@ async def predict(file: UploadFile = File(...)):
     pred_idx = predict_image(image)
     pred_label = class_names[pred_idx]
 
+    with open("app/example.json") as f1:
+        examples = json.load(f1)
+    category_example = pred_label.lower() + "_example"
+    example = examples[category_example]
+
+
+    with open("app/fun_facts.json", 'r') as f2:
+        fun_facts = json.load(f2)
+    category_fact = pred_label.lower() + "_fun_facts"
+    fun_fact = random.choice(fun_facts[category_fact])
+
     return {
         "predicted_class": pred_label,
-        "class_index": pred_idx
+        "Example Dinosaurs": example,
+        "Fun Fact!": fun_fact
     }
+
+
+# import random
+# import json
+
+# file_path = "app/fun_facts.json"
+
+# with open(file_path, 'r') as f:
+#     fun_facts = json.load(f)
+# category = "sauropod_fun_facts"
+# fun_fact = random.choice(fun_facts[category])
+
+# print(fun_fact)
+# # print(random.choice([1,2,3]))
