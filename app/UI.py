@@ -27,7 +27,6 @@ custom_css = """
 """
 
 with gr.Blocks(css=custom_css) as demo:
-    # gr.HTML(value = "<h1 style = 'background-color: white; text-align: center; width=: 100px; height: 50px; padding: 10px;'>Dinosaur Fossil Classifier</h1>")
     gr.HTML(value = "<h1 style =  'font-size: 36px; text-align: center;'>Dinosaur Fossil Classifier</h1>")
 
     img = gr.Image(type = 'pil', width=500, height=500)
@@ -36,10 +35,8 @@ with gr.Blocks(css=custom_css) as demo:
     example = gr.Textbox(label = "Dinosaur Examples")
     fun_fact = gr.Textbox(label = "Fun Fact!")
     evaluate_btn.click(fn = call_api, inputs = img, outputs = [predicted_result, example, fun_fact])
-    # gr.Interface(fn = call_api, inputs = img, outputs=output_text)
 
 demo.launch(theme=gr.themes.Ocean(), allowed_paths= [os.path.dirname(file_path)], server_name="0.0.0.0", server_port= 8000)
 
-# theme=gr.themes.Glass(), 
 
 

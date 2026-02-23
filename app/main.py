@@ -12,8 +12,6 @@ import json
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-
-
 from app.torch_utils import model
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -85,16 +83,3 @@ async def predict(file: UploadFile = File(...)):
         "Fun Fact!": fun_fact
     }
 
-
-# import random
-# import json
-
-# file_path = "app/fun_facts.json"
-
-# with open(file_path, 'r') as f:
-#     fun_facts = json.load(f)
-# category = "sauropod_fun_facts"
-# fun_fact = random.choice(fun_facts[category])
-
-# print(fun_fact)
-# # print(random.choice([1,2,3]))
