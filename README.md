@@ -19,8 +19,9 @@ The goal is to understand both the theoretical foundations of deep convolutional
 
   * Sauropod
   * Theropod
-  * Ammonite
-  * (add others here)
+  * Ornithiscia
+  * Marine(Ammonites, Plesiosaurs, Mosasaurs, Trilobites)
+  * Unknown (Eggs, Footprints, Leaves, etc.)
 
 > Note: The dataset is relatively small, which significantly impacts model performance when training from scratch.
 
