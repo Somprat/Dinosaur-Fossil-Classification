@@ -1,0 +1,7 @@
+{
+    "theropod_example": "Tyrannosaurus Rex, Spinosaurus, Velociraptor",
+    "sauropod_example": "Apatosaurus, Diplodocus, Brachiosaurus",
+    "ornithischia_example": "Triceratops, Stegosaurus, Ankylosaurus, Iguanodon",
+    "marine_example": "Mosasaurus, Elasmosaurus, Trilobite, Ammonites",
+    "unknown_example": "Egg, Leaves, Footprints"
+}
